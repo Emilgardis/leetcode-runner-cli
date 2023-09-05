@@ -19,6 +19,7 @@ const DAILY_CHALLENGE: &str = "daily_challenge.html";
 
 fn main() -> Result<()> {
     let cli = Cli::parse();
+    dotenvy::dotenv()?;
 
     let cookie = std::env::var_os(LC_COOKIE_ENV_KEY)
         .ok_or_else(|| eyre::eyre!("{} is not set in the environment.", LC_COOKIE_ENV_KEY))?
